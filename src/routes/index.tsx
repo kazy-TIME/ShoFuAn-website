@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import heroAsset from "@/assets/hero-manju.jpg";
+import heroAsset from "@/assets/hero-manju.png";
 import chitoseManjuAsset from "@/assets/product-chitose-manju.png";
 import tsubuanManAsset from "@/assets/product-tsubuan-man.png";
 import milkAnManAsset from "@/assets/product-milk-an-man.png";
 import tamagoMushiAsset from "@/assets/product-tamago-mushi.png";
 import craftAsset from "@/assets/craft-hands.jpg";
+import shogoKunAsset from "@/assets/shogo-kun.png";
 import shopAsset from "@/assets/shop-location.png";
 import characterAsset from "@/assets/shofuan-character.png";
 import demaekanLogo from "@/assets/demaekan-logo.jpg";
@@ -143,8 +144,8 @@ function LandingPage() {
               <img
                 src={heroAsset}
                 alt="蒸したてのちとせまんじゅう"
-                width={1600}
-                height={1280}
+                width={1448}
+                height={1086}
                 className="block h-full w-full object-cover"
               />
             </div>
@@ -161,8 +162,8 @@ function LandingPage() {
 
       {/* Story */}
       <section id="story" className="paper-grain relative overflow-hidden py-24">
-        <div className="mx-auto grid max-w-5xl gap-12 px-5 sm:px-8 md:grid-cols-[1fr_1.2fr] md:gap-16">
-          <div className="md:sticky md:top-28 md:self-start">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <div className="max-w-2xl">
             <p className="font-serif-en text-sm italic text-stamp">Our Story</p>
             <h2 className="mt-3 font-mincho text-3xl leading-snug text-anko sm:text-4xl">
               千歳の<br />記憶のなかから。
@@ -172,33 +173,39 @@ function LandingPage() {
               <span className="font-mincho text-xs tracking-widest text-muted-foreground">ものがたり</span>
             </div>
           </div>
-          <div className="space-y-6 text-[1rem] leading-[2] text-foreground/85">
-            <p className="text-balance">
-              昔この街には、長く愛された一軒のおまんじゅう屋さんがありました。
-              ふっくらと蒸し上がった皮、やさしい甘さの餡。
-              買い物帰りの一袋が、家族のささやかなおやつでした。
-            </p>
-            <p className="text-balance">
-              <span className="bg-stamp/10 px-1">わたしたちは、まだ新しいお店です。</span>
-              何百年と続く老舗ではありません。
-              けれど、この街にずっと流れてきた「あのおまんじゅうの空気」を、
-              もう一度かたちにしてみたい。そんな気持ちから、昇風庵ははじまりました。
-            </p>
-            <p className="text-balance text-muted-foreground">
-              受け継ぐ、というよりは、思い出を抱きしめながら、
-              この街の新しい毎日のおやつを、ここから少しずつ。
-            </p>
-            <figure className="mt-8 overflow-hidden rounded-[20px] border border-border bg-card shadow-[var(--shadow-soft)]">
-              <img
-                src={craftAsset}
-                alt="餡をやさしく包む職人の手"
-                width={1600}
-                height={1100}
-                loading="lazy"
-                className="block h-full w-full object-cover"
-              />
-              <figcaption className="px-5 py-4 font-mincho text-sm text-muted-foreground">
-                一つひとつ、手のひらで包む。
+
+          <div className="mt-12 grid items-start gap-10 lg:grid-cols-[1fr_minmax(240px,300px)] lg:gap-14 xl:gap-20">
+            <div className="order-2 space-y-6 text-[1rem] leading-[2] text-foreground/85 lg:order-1">
+              <p className="text-balance">
+                昔この街には、長く愛された一軒のおまんじゅう屋さんがありました。
+                ふっくらと蒸し上がった皮、やさしい甘さの餡。
+                買い物帰りの一袋が、家族のささやかなおやつでした。
+              </p>
+              <p className="text-balance">
+                <span className="bg-stamp/10 px-1">わたしたちは、まだ新しいお店です。</span>
+                何百年と続く老舗ではありません。
+                けれど、この街にずっと流れてきた「あのおまんじゅうの空気」を、
+                もう一度かたちにしてみたい。そんな気持ちから、昇風庵ははじまりました。
+              </p>
+              <p className="text-balance text-muted-foreground">
+                受け継ぐ、というよりは、思い出を抱きしめながら、
+                この街の新しい毎日のおやつを、ここから少しずつ。
+              </p>
+            </div>
+
+            <figure className="order-1 mx-auto w-full max-w-[280px] lg:order-2 lg:sticky lg:top-28 lg:mx-0 lg:max-w-none">
+              <div className="overflow-hidden rounded-[20px] border border-border bg-card shadow-[var(--shadow-soft)]">
+                <img
+                  src={shogoKunAsset}
+                  alt="蒸籠を手にまんじゅうを届ける昇風庵の職人"
+                  width={1088}
+                  height={1446}
+                  loading="lazy"
+                  className="block aspect-[544/723] w-full object-cover object-top"
+                />
+              </div>
+              <figcaption className="mt-4 text-center font-mincho text-sm text-muted-foreground lg:text-right">
+                蒸したてを、その手から。
               </figcaption>
             </figure>
           </div>
@@ -214,7 +221,7 @@ function LandingPage() {
               <h2 className="mt-2 font-mincho text-3xl text-anko sm:text-4xl">おまんじゅうのこと</h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              定番のひと粒から、贈りもの、季節のいち品まで。
+              ひとつひとつ、丁寧に。
               <br className="hidden sm:block" />
               どれも、その日の朝にこの店でつくっています。
             </p>
@@ -222,10 +229,10 @@ function LandingPage() {
 
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { img: chitoseManjuAsset, tag: "看板", en: "Signature", name: "ちとせまんじゅう（肉まん）", copy: "皮からすべて手作り。\nふわふわで軽い食感の皮と、あっさりとした餡が特徴の、昇風庵を代表するまんじゅうです。" },
+              { img: chitoseManjuAsset, tag: "看板", en: "Signature", name: "ちとせまんじゅう", copy: "皮からすべて手作り。\nジューシーなお肉とあっさりとした野菜が特徴の、昇風庵を代表するまんじゅうです。" },
               { img: tsubuanManAsset, tag: "定番", en: "Anko", name: "つぶあんまん", copy: "やさしい甘さの粒あんを、ふんわりとした薄皮で。\n毎日のおやつに、いちばん寄り添う一粒。" },
-              { img: milkAnManAsset, tag: "限定", en: "Milk An", name: "ミクルあんまん", copy: "北海道産の白餡に、練乳を練り込んだ\nあまぁくて品のあるおまんじゅう。" },
-              { img: tamagoMushiAsset, tag: "蒸しパン", en: "Tamago", name: "たまご蒸しパン", copy: "ふんわり、しっとりと蒸し上げた、やさしい甘さのたまご蒸しパン。\nたまごのまろやかな風味が広がる、どこか懐かしくほっとする味わい。" },
+              { img: milkAnManAsset, tag: "限定", en: "Milk An", name: "ミクルあんまん", copy: "北海道産の白餡に、練乳を練り込んだ甘くて品のあるおまんじゅう。ふわふわで軽い食感の皮と、優しい甘みの一粒。" },
+              { img: tamagoMushiAsset, tag: "蒸しパン", en: "Tamago", name: "たまご蒸しパン", copy: "ふんわりと蒸し上げた、やさしい甘さのたまご蒸しパン。まろやかな風味が広がる、どこか懐かしくほっとする味わい。" },
             ].map((p) => (
               <article
                 key={p.name}
@@ -292,10 +299,10 @@ function LandingPage() {
           <div className="relative">
             <div className="overflow-hidden rounded-[28px] border border-cream/15 shadow-[var(--shadow-warm)]">
               <img
-                src={tsubuanManAsset}
-                alt="蒸し上がったおまんじゅう"
-                width={1200}
-                height={1200}
+                src={craftAsset}
+                alt="餡をやさしく包む職人の手"
+                width={1600}
+                height={1100}
                 loading="lazy"
                 className="block h-full w-full object-cover"
               />
