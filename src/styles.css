@@ -1,0 +1,183 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-bun: var(--bun);
+  --color-anko: var(--anko);
+  --color-anko-soft: var(--anko-soft);
+  --color-stamp: var(--stamp);
+  --color-moss: var(--moss);
+  --color-hokkaido: var(--hokkaido);
+  --color-ink: var(--ink);
+
+  --font-mincho: var(--font-mincho);
+  --font-gothic: var(--font-gothic);
+  --font-serif-en: var(--font-serif-en);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand palette */
+  --cream: oklch(0.975 0.012 85);
+  --paper: oklch(0.955 0.018 80);
+  --bun: oklch(0.92 0.025 78);
+  --anko: oklch(0.32 0.055 40);
+  --anko-soft: oklch(0.48 0.07 45);
+  --stamp: oklch(0.55 0.16 28);
+  --moss: oklch(0.5 0.06 145);
+  --hokkaido: oklch(0.55 0.07 230);
+  --ink: oklch(0.25 0.025 55);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(0.99 0.008 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: var(--ink);
+  --primary: var(--anko);
+  --primary-foreground: var(--cream);
+  --secondary: var(--paper);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper);
+  --muted-foreground: oklch(0.45 0.025 55);
+  --accent: var(--stamp);
+  --accent-foreground: var(--cream);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.88 0.02 75);
+  --input: oklch(0.88 0.02 75);
+  --ring: var(--stamp);
+
+  --font-mincho: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-gothic: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-serif-en: "Cormorant Garamond", serif;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px oklch(0.32 0.055 40 / 0.05), 0 8px 24px -8px oklch(0.32 0.055 40 / 0.12);
+  --shadow-warm: 0 10px 40px -12px oklch(0.32 0.055 40 / 0.18);
+
+  /* Gradients */
+  --gradient-cream: linear-gradient(180deg, var(--cream), var(--paper));
+  --gradient-steam: linear-gradient(180deg, oklch(1 0 0 / 0.7), oklch(1 0 0 / 0));
+}
+
+/* Paper grain texture */
+@utility paper-grain {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(oklch(0.5 0.04 60 / 0.06) 1px, transparent 1px),
+    radial-gradient(oklch(0.5 0.04 60 / 0.04) 1px, transparent 1px);
+  background-size: 18px 18px, 11px 11px;
+  background-position: 0 0, 6px 7px;
+}
+
+@utility washi {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(oklch(0.45 0.04 60 / 0.04) 1px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Soft steam animation */
+@keyframes steam-rise {
+  0% { transform: translateY(8px) scaleX(1); opacity: 0; }
+  30% { opacity: 0.65; }
+  100% { transform: translateY(-44px) scaleX(1.4); opacity: 0; }
+}
+@utility animate-steam {
+  animation: steam-rise 4.5s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@utility animate-float {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+/* Closing section — manju-shaped top curve via SVG divider */
+@layer components {
+  .closing-manju {
+    position: relative;
+    background-color: var(--anko);
+  }
+
+  .closing-manju__curve {
+    display: block;
+    line-height: 0;
+    margin-bottom: -1px;
+  }
+
+  .closing-manju__curve svg {
+    display: block;
+    width: 100%;
+    height: clamp(2.75rem, 7vw, 4.5rem);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-gothic);
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-mincho);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+}
